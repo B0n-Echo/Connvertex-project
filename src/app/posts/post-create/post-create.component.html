@@ -1,0 +1,49 @@
+<H2>USER</H2>
+
+<mat-card>
+    <div class="example-container">
+
+        <mat-form-field
+            [formGroup]="options"
+            [hideRequiredMarker]="options.value.hideRequired"
+            [floatLabel]="options.value.floatLabel">
+          <mat-label>Id</mat-label>
+          <input formControlName="userId" matInput required>
+        </mat-form-field>
+
+        <mat-form-field
+        [formGroup]="options"
+        [floatLabel]="options.value.floatLabel">
+          <mat-label>Age</mat-label>
+          <input formControlName="age" matInput required>
+        </mat-form-field>
+
+        <mat-form-field
+        [formGroup]="options"
+        [floatLabel]="options.value.floatLabel">
+          <mat-label>Pincode</mat-label>
+          <input formControlName="pincode" matInput required>
+        </mat-form-field>
+
+        <mat-form-field
+            [hideRequiredMarker]="options.value.hideRequired"
+            [floatLabel]="options.value.floatLabel">
+          <mat-select required>
+            <mat-option>-- None --</mat-option>
+            <mat-option *ngFor="let option of genderOptions" [value]="option">
+                {{option}}
+              </mat-option>
+          </mat-select>
+          <mat-label><b> Gender</b></mat-label>
+        </mat-form-field>
+
+        <form class="example-container" [formGroup]="options">
+            <mat-checkbox formControlName="activeUser">Active User</mat-checkbox>
+          </form>
+      </div>
+
+      <button
+      mat-raised-button
+      color="accent"
+      (click)="addPost()">Save Post</button>
+</mat-card>
